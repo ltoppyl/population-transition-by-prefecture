@@ -31,7 +31,31 @@ const PrefectureList = () => {
     }
   }, []);
 
-  return <p>{prefectureList}</p>;
+  return (
+    <>
+      {prefectureList && (
+        <>
+          {prefectureList.map((data) => {
+            return (
+              <div key={data}>
+                {/* XXX: なぜ label で囲うとチェックボックスが表示されるか不明 */}
+                <label>
+                  <input key={data} type="checkbox" />
+                  {data}
+                </label>
+              </div>
+            );
+          })}
+        </>
+      )}
+    </>
+  );
 };
 
 export default PrefectureList;
+
+function onBlurHandler():
+  | React.FocusEventHandler<HTMLInputElement>
+  | undefined {
+  throw new Error("Function not implemented.");
+}
