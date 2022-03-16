@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const PrefectureList = () => {
-  const [prefectureList, setPrefectureList] = useState<any[]>();
+const PrefecturesList = () => {
+  const [prefecturesList, setPrefecturesList] = useState<any[]>();
 
   useEffect(() => {
     if (!process.env.REACT_APP_API_KEY) {
@@ -20,28 +20,28 @@ const PrefectureList = () => {
           axiosConfig
         )
         .then((response) => {
-          let prefectureList: any[] = [];
+          let prefecturesList: any[] = [];
 
           response.data.result.forEach((data: any) => {
-            prefectureList.push(data.prefName);
+            prefecturesList.push(data.prefName);
           });
 
-          setPrefectureList(prefectureList);
+          setPrefecturesList(prefecturesList);
         });
     }
   }, []);
 
   return (
     <>
-      {prefectureList && (
+      {prefecturesList && (
         <>
-          {prefectureList.map((data) => {
+          {prefecturesList.map((prefectures) => {
             return (
-              <div key={data}>
+              <div key={prefectures}>
                 {/* XXX: なぜ label で囲うとチェックボックスが表示されるか不明 */}
                 <label>
-                  <input key={data} type="checkbox" />
-                  {data}
+                  <input key={prefectures} type="checkbox" />
+                  {prefectures}
                 </label>
               </div>
             );
@@ -52,10 +52,4 @@ const PrefectureList = () => {
   );
 };
 
-export default PrefectureList;
-
-function onBlurHandler():
-  | React.FocusEventHandler<HTMLInputElement>
-  | undefined {
-  throw new Error("Function not implemented.");
-}
+export default PrefecturesList;
