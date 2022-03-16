@@ -1,27 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const PrefectureList = () => {
-  if (!process.env.REACT_APP_API_KEY) {
-    console.error("environment variables are not set");
-  } else {
-    const axiosConfig = {
-      headers: {
-        "X-API-KEY": process.env.REACT_APP_API_KEY,
-      },
-    };
+  const [prefectureList, setPrefectureList] = useState<any[]>();
 
-    const res = axios
-      .get(
-        "https://opendata.resas-portal.go.jp/api/v1/prefectures",
-        axiosConfig
-      )
-      .then((response) => {
-        console.log(response.data);
-      });
-  }
+  useEffect(() => {
+    if (!process.env.REACT_APP_API_KEY) {
+      console.error("environment variables are not set");
+    } else {
+      const axiosConfig = {
+        headers: {
+          "X-API-KEY": process.env.REACT_APP_API_KEY,
+        },
+      };
 
-  return <p>PrefectureList</p>;
+      const res = axios
+        .get(
+          "https://opendata.resas-portal.go.jp/api/v1/prefectures",
+          axiosConfig
+        )
+        .then((response) => {
+          let prefectureList: any[] = [];
+
+          response.data.result.forEach((data: any) => {
+            prefectureList.push(data.prefName);
+          });
+
+          setPrefectureList(prefectureList);
+        });
+    }
+  }, []);
+
+  return <p>{prefectureList}</p>;
 };
 
 export default PrefectureList;
