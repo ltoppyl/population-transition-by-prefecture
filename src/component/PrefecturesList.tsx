@@ -106,12 +106,10 @@ const PrefecturesList = ({ setGraphData }: Props) => {
 
       const number = checked_number[checked_number.length - 1];
 
-      if (number) {
+      if (number + 1) {
         const res = axios
           .get(
-            "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
-              number +
-              "&cityCode=-",
+            "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=1&cityCode=-",
             axiosConfig
           )
           .then((response) => {
@@ -123,6 +121,8 @@ const PrefecturesList = ({ setGraphData }: Props) => {
 
             setGraphData(dataList);
           });
+      } else {
+        setGraphData(undefined);
       }
     }
   }, [checkBoxStatus]);
