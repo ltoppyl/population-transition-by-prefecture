@@ -139,13 +139,6 @@ const PrefecturesList = ({ setGraphData }: Props) => {
     <>
       {prefecturesList && (
         <>
-          <p>チェックされている県</p>
-          {checkBoxStatus.map((check_status, index) => {
-            if (check_status === true) {
-              return <p key={index}>{prefecturesList[index].prefName}</p>;
-            }
-          })}
-          <p>-------------------------------------</p>
           {prefecturesList.map((prefecturesData) => {
             return (
               <div className="prefecturesList" key={prefecturesData.prefCode}>
