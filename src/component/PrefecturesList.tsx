@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../style/style.css";
 
 const PrefecturesList = () => {
   const [prefecturesList, setPrefecturesList] = useState<any[]>();
@@ -37,11 +38,11 @@ const PrefecturesList = () => {
         <>
           {prefecturesList.map((prefectures) => {
             return (
-              <div key={prefectures}>
+              <div className="prefecturesList" key={prefectures}>
                 {/* XXX: なぜ label で囲うとチェックボックスが表示されるか不明 */}
                 <label>
                   <input key={prefectures} type="checkbox" />
-                  {prefectures}
+                  {prefectures}{" "}
                 </label>
               </div>
             );
