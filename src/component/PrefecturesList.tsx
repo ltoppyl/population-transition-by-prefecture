@@ -105,25 +105,25 @@ const PrefecturesList = ({ setGraphData }: Props) => {
       });
 
       const number = checked_number[checked_number.length - 1];
-      console.log(checked_number);
-      console.log(number);
 
-      const res = axios
-        .get(
-          "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
-            number +
-            "&cityCode=-",
-          axiosConfig
-        )
-        .then((response) => {
-          let dataList: any[] = [];
+      if (number) {
+        const res = axios
+          .get(
+            "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
+              number +
+              "&cityCode=-",
+            axiosConfig
+          )
+          .then((response) => {
+            let dataList: any[] = [];
 
-          response.data.result.data[0].data.forEach((data: any) => {
-            dataList.push(data);
+            response.data.result.data[0].data.forEach((data: any) => {
+              dataList.push(data);
+            });
+
+            setGraphData(dataList);
           });
-
-          setGraphData(dataList);
-        });
+      }
     }
   }, [checkBoxStatus]);
 
