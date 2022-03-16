@@ -1,7 +1,8 @@
 import React from "react";
+import PrefectureList from "./component/PrefecturesList";
 
 function App() {
-  return <p>App</p>;
+  return <PrefectureList />;
 }
 
 export default App;
