@@ -9,6 +9,8 @@ module.export = {
     "plugin:import/typescript",
     "plugin:import/warnings",
     "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
     "react-app",
     "react-app/jest",
   ],
