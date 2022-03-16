@@ -109,7 +109,9 @@ const PrefecturesList = ({ setGraphData }: Props) => {
       if (number + 1) {
         const res = axios
           .get(
-            "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=1&cityCode=-",
+            "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
+              (number + 1) +
+              "&cityCode=-",
             axiosConfig
           )
           .then((response) => {
