@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import {
   LineChart,
   Line,
@@ -6,8 +6,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
-  ResponsiveContainer,
 } from "recharts";
 
 const data = [
@@ -57,13 +55,24 @@ const data = [
 
 const Graph = () => {
   return (
-    <LineChart width={600} height={300} data={data}>
+    <LineChart
+      width={500}
+      height={300}
+      data={data}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
       <Line type="monotone" dataKey="uv" stroke="#8884d8" />
       <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
       <Line type="monotone" dataKey="amt" stroke="red" />
       <CartesianGrid stroke="#ccc" />
       <XAxis dataKey="name" />
       <YAxis />
+      <Tooltip />
     </LineChart>
   );
 };
