@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import PrefectureList from "./component/PrefecturesList";
-import Graph from "./component/Graph";
-import Title from "./component/Title";
+import PrefectureList from "./components/PrefecturesList";
+import Graph from "./components/Graph";
+import Title from "./components/Title";
 
 const App = () => {
   const [graphData, setGraphData] = useState<any[]>();
