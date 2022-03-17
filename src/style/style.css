@@ -1,3 +1,13 @@
-.prefecturesNameList {
-  display: inline;
+.title {
+  text-align: center;
+  background-color: silver;
+}
+
+.prefectures-name-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recharts-wrapper {
+  margin: auto;
 }
