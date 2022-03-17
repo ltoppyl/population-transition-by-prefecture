@@ -6,6 +6,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
 } from "recharts";
 
 type Props = {
@@ -13,6 +14,8 @@ type Props = {
 };
 
 const Graph = ({ dataList }: Props) => {
+  const colorList = ["#00bfff", "#228b22", "#ffd700", "#ff8c00", "#da70d6"];
+
   const exitPrefectureNameList = [];
   if (dataList) {
     for (const key in dataList[0]) {
@@ -26,7 +29,7 @@ const Graph = ({ dataList }: Props) => {
     <>
       {dataList ? (
         <LineChart
-          width={500}
+          width={700}
           height={300}
           data={dataList}
           margin={{
@@ -36,20 +39,21 @@ const Graph = ({ dataList }: Props) => {
             bottom: 5,
           }}
         >
-          {exitPrefectureNameList.map((exitPrefectureName) => {
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="year" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          {exitPrefectureNameList.map((exitPrefectureName, index) => {
             return (
               <Line
                 key={exitPrefectureName}
                 type="monotone"
                 dataKey={exitPrefectureName}
-                stroke="#8884d8"
+                stroke={colorList[index]}
               />
             );
           })}
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="year" />
-          <YAxis />
-          <Tooltip />
         </LineChart>
       ) : (
         <p>グラフが選択されていません</p>
