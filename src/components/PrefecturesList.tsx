@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
-import "../style/style.css";
+import "../styles/style.css";
 import FetchPopulationData from "./fetchData/PopulationTransition";
 import FetchPrefecturesList from "./fetchData/PrefecturesList";
 

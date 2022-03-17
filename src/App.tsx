@@ -1,16 +1,30 @@
-import React, { useState } from "react";
-import PrefectureList from "./component/PrefecturesList";
-import Graph from "./component/Graph";
-import Title from "./component/Title";
+import React, { useEffect, useState } from "react";
+
+import PrefectureList from "./components/PrefecturesList";
+import Graph from "./components/graph/Graph";
+import Title from "./components/Title";
+import { useMediaQueryContext } from "./components/responsive/MediaQueryProvider";
 
 const App = () => {
   const [graphData, setGraphData] = useState<any[]>();
+  const { isMobileSite, isTabletSite, isPcSite } = useMediaQueryContext();
+  const [equipment, setEquipment] = useState<string>("pc");
+
+  useEffect(() => {
+    if (isMobileSite === true) {
+      setEquipment("mobile");
+    } else if (isTabletSite === true) {
+      setEquipment("tablet");
+    } else if (isPcSite === true) {
+      setEquipment("pc");
+    }
+  }, [isMobileSite, isTabletSite, isPcSite]);
 
   return (
     <>
       <Title />
       <PrefectureList setGraphData={setGraphData} />
-      <Graph dataList={graphData} />
+      <Graph equipment={equipment} dataList={graphData} />
     </>
   );
 };

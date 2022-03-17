@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { MediaQueryProvider } from "./components/responsive/MediaQueryProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MediaQueryProvider>
+      <App />
+    </MediaQueryProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
