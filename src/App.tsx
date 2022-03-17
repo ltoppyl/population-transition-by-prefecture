@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import PrefectureList from "./component/PrefecturesList";
-import Graph from "./component/graph/Graph";
+import Graph from "./component/Graph";
 
-function App() {
+const App = () => {
+  const [graphData, setGraphData] = useState<any[]>();
+
   return (
     <>
-      <PrefectureList />
-      <Graph />
+      {console.log(graphData)}
+      <PrefectureList setGraphData={setGraphData} />
+      <Graph data={graphData} />
     </>
   );
-}
+};
 
 export default App;
