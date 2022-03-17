@@ -9,12 +9,16 @@ import {
   Legend,
 } from "recharts";
 
+import SettingUiSize from "./SettingUiSize";
+
 type Props = {
+  equipment: string;
   dataList: any[] | undefined;
 };
 
-const Graph = ({ dataList }: Props) => {
+const Graph = ({ equipment, dataList }: Props) => {
   const colorList = ["#00bfff", "#228b22", "#ffd700", "#ff8c00", "#da70d6"];
+  const uiSizeForGraph = SettingUiSize(equipment);
 
   const exitPrefectureNameList = [];
   if (dataList) {
@@ -26,17 +30,17 @@ const Graph = ({ dataList }: Props) => {
   }
 
   return (
-    <div className="display-graph">
+    <>
       {dataList ? (
         <LineChart
-          width={700}
-          height={350}
+          width={uiSizeForGraph.width}
+          height={uiSizeForGraph.height}
           data={dataList}
           margin={{
-            top: 100,
-            right: 30,
-            left: 20,
-            bottom: 5,
+            top: uiSizeForGraph.marginTop,
+            right: uiSizeForGraph.marginRight,
+            left: uiSizeForGraph.marginLeft,
+            bottom: uiSizeForGraph.marginBottom,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
@@ -72,7 +76,7 @@ const Graph = ({ dataList }: Props) => {
       ) : (
         <p>グラフが選択されていません</p>
       )}
-    </div>
+    </>
   );
 };
 

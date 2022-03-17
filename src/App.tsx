@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import PrefectureList from "./components/PrefecturesList";
-import Graph from "./components/Graph";
+import Graph from "./components/graph/Graph";
 import Title from "./components/Title";
 import { useMediaQueryContext } from "./components/responsive/MediaQueryProvider";
 
@@ -24,7 +24,7 @@ const App = () => {
     <>
       <Title equipment={equipment} />
       <PrefectureList setGraphData={setGraphData} />
-      <Graph dataList={graphData} />
+      <Graph equipment={equipment} dataList={graphData} />
     </>
   );
 };
