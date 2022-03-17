@@ -68,7 +68,7 @@ const Graph = ({ equipment, dataList }: Props) => {
                 key={exitPrefectureName}
                 type="monotone"
                 dataKey={exitPrefectureName}
-                stroke={colorList[index]}
+                stroke={colorList[index % 5]}
               />
             );
           })}
