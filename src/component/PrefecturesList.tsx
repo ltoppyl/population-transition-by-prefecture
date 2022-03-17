@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "../style/style.css";
 import FetchPopulationData from "./fetchData/PopulationTransition";
+import FetchPrefecturesList from "./fetchData/PrefecturesList";
 
 type Props = {
   setGraphData: Dispatch<SetStateAction<any[] | undefined>>;
@@ -61,30 +62,7 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
   ]);
 
   useEffect(() => {
-    if (!process.env.REACT_APP_API_KEY) {
-      console.error("environment variables are not set");
-    } else {
-      const axiosConfig = {
-        headers: {
-          "X-API-KEY": process.env.REACT_APP_API_KEY,
-        },
-      };
-
-      const res = axios
-        .get(
-          "https://opendata.resas-portal.go.jp/api/v1/prefectures",
-          axiosConfig
-        )
-        .then((response) => {
-          let prefecturesNameList: any[] = [];
-
-          response.data.result.forEach((data: any) => {
-            prefecturesNameList.push(data);
-          });
-
-          setPrefecturesNameList(prefecturesNameList);
-        });
-    }
+    const fetchPrefecturesList = FetchPrefecturesList(setPrefecturesNameList);
   }, []);
 
   useEffect(() => {
