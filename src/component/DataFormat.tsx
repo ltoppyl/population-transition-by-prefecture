@@ -56,19 +56,14 @@ const DataFormat = (
   ];
 
   let returnData: any[] = [];
-  // console.log(yearData);
-  // console.log(dataList);
 
   switch (prefecturesNumberList.length) {
     case 1:
       for (let i = 0; i <= 17; i++) {
-        // console.log(yearData[i]);
-        // console.log(dataList[i]);
         const _returnData = {
           year: yearData[i],
           [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
         };
-        // console.log(_returnData);
         returnData.push(_returnData);
       }
       break;
@@ -98,7 +93,6 @@ const DataFormat = (
       break;
   }
 
-  console.log(returnData);
   return returnData;
 };
 

@@ -46,7 +46,6 @@ const Graph = ({ data }: Props) => {
               />
             );
           })}
-          {/* <Line type="monotone" dataKey="value" stroke="#8884d8" /> */}
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="year" />
           <YAxis />
