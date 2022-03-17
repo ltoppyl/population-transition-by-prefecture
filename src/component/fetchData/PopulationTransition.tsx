@@ -3,7 +3,7 @@ import axios from "axios";
 
 import DataFormat from "../DataFormatForGraph";
 
-const FetchPopulationData = (
+const PopulationTransition = (
   checkBoxStatusList: any[],
   setGraphData: Dispatch<SetStateAction<any[] | undefined>>
 ) => {
@@ -65,4 +65,4 @@ const FetchPopulationData = (
   return <p>New File</p>;
 };
 
-export default FetchPopulationData;
+export default PopulationTransition;
