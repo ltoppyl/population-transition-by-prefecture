@@ -3,8 +3,9 @@
   background-color: silver;
 }
 
-.prefecturesNameList {
-  display: inline;
+.prefectures-name-list {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .recharts-wrapper {

@@ -155,13 +155,10 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
   return (
     <>
       {prefecturesNameList && (
-        <>
+        <div className="prefectures-name-list">
           {prefecturesNameList.map((prefecturesData) => {
             return (
-              <div
-                className="prefecturesNameList"
-                key={prefecturesData.prefCode}
-              >
+              <div key={prefecturesData.prefCode}>
                 {/* XXX: なぜ label で囲うとチェックボックスが表示されるか不明 */}
                 <label>
                   <input
@@ -176,7 +173,7 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
               </div>
             );
           })}
-        </>
+        </div>
       )}
     </>
   );
