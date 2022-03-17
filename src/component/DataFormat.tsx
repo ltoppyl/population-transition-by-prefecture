@@ -55,6 +55,7 @@ const DataFormat = (
     "沖縄",
   ];
 
+  const yearDataAmount = 18;
   let returnData: any[] = [];
 
   switch (prefecturesNumberList.length) {
@@ -72,7 +73,8 @@ const DataFormat = (
         const _returnData = {
           year: yearData[i],
           [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
-          [prefecturesNameList[prefecturesNumberList[1]]]: dataList[i + 18],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
         };
         returnData.push(_returnData);
       }
@@ -82,14 +84,164 @@ const DataFormat = (
         const _returnData = {
           year: yearData[i],
           [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
-          [prefecturesNameList[prefecturesNumberList[1]]]: dataList[i + 18],
-          [prefecturesNameList[prefecturesNumberList[2]]]: dataList[i + 36],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
+          [prefecturesNameList[prefecturesNumberList[2]]]:
+            dataList[i + yearDataAmount * 2],
         };
         returnData.push(_returnData);
       }
       break;
+    case 4:
+      for (let i = 0; i <= 17; i++) {
+        const _returnData = {
+          year: yearData[i],
+          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
+          [prefecturesNameList[prefecturesNumberList[2]]]:
+            dataList[i + yearDataAmount * 2],
+          [prefecturesNameList[prefecturesNumberList[3]]]:
+            dataList[i + yearDataAmount * 3],
+        };
+        returnData.push(_returnData);
+      }
+      break;
+    case 5:
+      for (let i = 0; i <= 17; i++) {
+        const _returnData = {
+          year: yearData[i],
+          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
+          [prefecturesNameList[prefecturesNumberList[2]]]:
+            dataList[i + yearDataAmount * 2],
+          [prefecturesNameList[prefecturesNumberList[3]]]:
+            dataList[i + yearDataAmount * 3],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 4],
+        };
+        returnData.push(_returnData);
+      }
+      break;
+    case 6:
+      for (let i = 0; i <= 17; i++) {
+        const _returnData = {
+          year: yearData[i],
+          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
+          [prefecturesNameList[prefecturesNumberList[2]]]:
+            dataList[i + yearDataAmount * 2],
+          [prefecturesNameList[prefecturesNumberList[3]]]:
+            dataList[i + yearDataAmount * 3],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 4],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 5],
+        };
+        returnData.push(_returnData);
+      }
+      break;
+    case 7:
+      for (let i = 0; i <= 17; i++) {
+        const _returnData = {
+          year: yearData[i],
+          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
+          [prefecturesNameList[prefecturesNumberList[2]]]:
+            dataList[i + yearDataAmount * 2],
+          [prefecturesNameList[prefecturesNumberList[3]]]:
+            dataList[i + yearDataAmount * 3],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 4],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 5],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 6],
+        };
+        returnData.push(_returnData);
+      }
+      break;
+    case 8:
+      for (let i = 0; i <= 17; i++) {
+        const _returnData = {
+          year: yearData[i],
+          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
+          [prefecturesNameList[prefecturesNumberList[2]]]:
+            dataList[i + yearDataAmount * 2],
+          [prefecturesNameList[prefecturesNumberList[3]]]:
+            dataList[i + yearDataAmount * 3],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 4],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 5],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 6],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 7],
+        };
+        returnData.push(_returnData);
+      }
+      break;
+    case 9:
+      for (let i = 0; i <= 17; i++) {
+        const _returnData = {
+          year: yearData[i],
+          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
+          [prefecturesNameList[prefecturesNumberList[2]]]:
+            dataList[i + yearDataAmount * 2],
+          [prefecturesNameList[prefecturesNumberList[3]]]:
+            dataList[i + yearDataAmount * 3],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 4],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 5],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 6],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 7],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 8],
+        };
+        returnData.push(_returnData);
+      }
+      break;
+    case 10:
+      for (let i = 0; i <= 17; i++) {
+        const _returnData = {
+          year: yearData[i],
+          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
+          [prefecturesNameList[prefecturesNumberList[1]]]:
+            dataList[i + yearDataAmount],
+          [prefecturesNameList[prefecturesNumberList[2]]]:
+            dataList[i + yearDataAmount * 2],
+          [prefecturesNameList[prefecturesNumberList[3]]]:
+            dataList[i + yearDataAmount * 3],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 4],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 5],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 6],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 7],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 8],
+          [prefecturesNameList[prefecturesNumberList[4]]]:
+            dataList[i + yearDataAmount * 9],
+        };
+        returnData.push(_returnData);
+      }
+      break;
+
     default:
-      console.error("Noting Data");
+      console.error("exceeding the amount of data ");
       break;
   }
 
