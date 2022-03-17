@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import axios from "axios";
 import "../style/style.css";
+import DataFormat from "./DataFormat";
 
 type Props = {
   setGraphData: Dispatch<SetStateAction<any[] | undefined>>;
@@ -102,17 +103,41 @@ const PrefecturesList = ({ setGraphData }: Props) => {
         }
       });
 
+      let dataList: any[] = [];
+      let yearData: any[] = [];
+
       if (checked_number.length != 0) {
-        const res = axios
-          .get(
-            "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
-              (checked_number[0] + 1) +
-              "&cityCode=-",
-            axiosConfig
-          )
-          .then((response) => {
-            setGraphData(response.data.result.data[0].data);
-          });
+        checked_number.forEach((number, index) => {
+          const res = axios
+            .get(
+              "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
+                (number + 1) +
+                "&cityCode=-",
+              axiosConfig
+            )
+            .then((response) => {
+              if (index === 0) {
+                response.data.result.data[0].data.forEach(
+                  (eachYearData: { year: any; value: any }) => {
+                    yearData.push(eachYearData.year);
+                    dataList.push(eachYearData.value);
+                  }
+                );
+              } else {
+                response.data.result.data[0].data.map(
+                  (eachYearData: { value: any }) => {
+                    dataList.push(eachYearData.value);
+                  }
+                );
+              }
+              const newGraphData = DataFormat(
+                dataList,
+                yearData,
+                checked_number
+              );
+              setGraphData(newGraphData);
+            });
+        });
       } else {
         setGraphData(undefined);
       }
