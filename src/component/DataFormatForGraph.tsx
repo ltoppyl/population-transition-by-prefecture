@@ -56,7 +56,7 @@ const DataFormat = (
   ];
 
   const yearDataAmount = 18;
-  let returnData: any[] = [];
+  let forGraphData: any[] = [];
 
   switch (prefecturesNumberList.length) {
     case 1:
@@ -65,7 +65,7 @@ const DataFormat = (
           year: yearData[i],
           [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 2:
@@ -76,7 +76,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[1]]]:
             dataList[i + yearDataAmount],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 3:
@@ -89,7 +89,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[2]]]:
             dataList[i + yearDataAmount * 2],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 4:
@@ -104,7 +104,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[3]]]:
             dataList[i + yearDataAmount * 3],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 5:
@@ -121,7 +121,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[4]]]:
             dataList[i + yearDataAmount * 4],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 6:
@@ -140,7 +140,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[4]]]:
             dataList[i + yearDataAmount * 5],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 7:
@@ -161,7 +161,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[4]]]:
             dataList[i + yearDataAmount * 6],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 8:
@@ -184,7 +184,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[4]]]:
             dataList[i + yearDataAmount * 7],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 9:
@@ -209,7 +209,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[4]]]:
             dataList[i + yearDataAmount * 8],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
     case 10:
@@ -236,7 +236,7 @@ const DataFormat = (
           [prefecturesNameList[prefecturesNumberList[4]]]:
             dataList[i + yearDataAmount * 9],
         };
-        returnData.push(_returnData);
+        forGraphData.push(_returnData);
       }
       break;
 
@@ -245,7 +245,7 @@ const DataFormat = (
       break;
   }
 
-  return returnData;
+  return forGraphData;
 };
 
 export default DataFormat;

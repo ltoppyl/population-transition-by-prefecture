@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <PrefectureList setGraphData={setGraphData} />
-      <Graph data={graphData} />
+      <Graph dataList={graphData} />
     </>
   );
 };
