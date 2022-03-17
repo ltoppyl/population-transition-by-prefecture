@@ -6,3 +6,7 @@
 .prefecturesNameList {
   display: inline;
 }
+
+.recharts-wrapper {
+  margin: auto;
+}

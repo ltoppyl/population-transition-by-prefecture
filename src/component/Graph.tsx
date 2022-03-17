@@ -30,10 +30,10 @@ const Graph = ({ dataList }: Props) => {
       {dataList ? (
         <LineChart
           width={700}
-          height={300}
+          height={350}
           data={dataList}
           margin={{
-            top: 40,
+            top: 100,
             right: 30,
             left: 20,
             bottom: 5,
