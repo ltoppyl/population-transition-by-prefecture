@@ -26,22 +26,36 @@ const Graph = ({ dataList }: Props) => {
   }
 
   return (
-    <>
+    <div className="display-graph">
       {dataList ? (
         <LineChart
           width={700}
           height={300}
           data={dataList}
           margin={{
-            top: 5,
+            top: 40,
             right: 30,
             left: 20,
             bottom: 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="year" />
-          <YAxis />
+          <XAxis
+            dataKey="year"
+            label={{
+              value: "年度",
+              offset: -10,
+              position: "insideBottomRight",
+            }}
+          />
+          <YAxis
+            label={{
+              value: "人口数",
+              angle: 0,
+              offset: -30,
+              position: "insideTop",
+            }}
+          />
           <Tooltip />
           <Legend />
           {exitPrefectureNameList.map((exitPrefectureName, index) => {
@@ -58,7 +72,7 @@ const Graph = ({ dataList }: Props) => {
       ) : (
         <p>グラフが選択されていません</p>
       )}
-    </>
+    </div>
   );
 };
 
