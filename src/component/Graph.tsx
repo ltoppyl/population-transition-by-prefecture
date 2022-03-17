@@ -13,12 +13,14 @@ type Props = {
 };
 
 const Graph = ({ data }: Props) => {
-  // const exitPrefectureNameList = [];
-  // for (const key in _data[0]) {
-  //   if (key !== "year") {
-  //     exitPrefectureNameList.push(key);
-  //   }
-  // }
+  const exitPrefectureNameList = [];
+  if (data) {
+    for (const key in data[0]) {
+      if (key !== "year") {
+        exitPrefectureNameList.push(key);
+      }
+    }
+  }
 
   return (
     <>
@@ -34,7 +36,7 @@ const Graph = ({ data }: Props) => {
             bottom: 5,
           }}
         >
-          {/* {exitPrefectureNameList.map((exitPrefectureName) => {
+          {exitPrefectureNameList.map((exitPrefectureName) => {
             return (
               <Line
                 key={exitPrefectureName}
@@ -43,8 +45,7 @@ const Graph = ({ data }: Props) => {
                 stroke="#8884d8"
               />
             );
-          })} */}
-          <Line type="monotone" dataKey="value" stroke="#8884d8" />
+          })}
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="year" />
           <YAxis />

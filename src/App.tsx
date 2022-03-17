@@ -7,7 +7,6 @@ const App = () => {
 
   return (
     <>
-      {console.log(graphData)}
       <PrefectureList setGraphData={setGraphData} />
       <Graph data={graphData} />
     </>
