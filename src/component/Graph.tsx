@@ -9,13 +9,13 @@ import {
 } from "recharts";
 
 type Props = {
-  data: any[] | undefined;
+  dataList: any[] | undefined;
 };
 
-const Graph = ({ data }: Props) => {
+const Graph = ({ dataList }: Props) => {
   const exitPrefectureNameList = [];
-  if (data) {
-    for (const key in data[0]) {
+  if (dataList) {
+    for (const key in dataList[0]) {
       if (key !== "year") {
         exitPrefectureNameList.push(key);
       }
@@ -24,11 +24,11 @@ const Graph = ({ data }: Props) => {
 
   return (
     <>
-      {data ? (
+      {dataList ? (
         <LineChart
           width={500}
           height={300}
-          data={data}
+          data={dataList}
           margin={{
             top: 5,
             right: 30,
