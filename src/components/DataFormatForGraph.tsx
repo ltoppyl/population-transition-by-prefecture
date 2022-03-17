@@ -67,7 +67,7 @@ const DataFormat = (
     };
     for (let j = 0; j < prefecturesNumberList.length; j++) {
       _returnData[prefecturesNameList[prefecturesNumberList[j]]] =
-        dataList[18 * j + i];
+        dataList[yearDataAmount * j + i];
     }
     forGraphData.push(_returnData);
   }
