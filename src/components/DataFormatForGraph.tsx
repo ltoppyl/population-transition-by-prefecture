@@ -1,8 +1,6 @@
-import { tmpdir } from "os";
 import React from "react";
-import { isTemplateExpression } from "typescript";
 
-const DataFormat = (
+const DataFormatForGraph = (
   dataList: any[],
   yearData: any[],
   prefecturesNumberList: number[]
@@ -75,4 +73,4 @@ const DataFormat = (
   return forGraphData;
 };
 
-export default DataFormat;
+export default DataFormatForGraph;

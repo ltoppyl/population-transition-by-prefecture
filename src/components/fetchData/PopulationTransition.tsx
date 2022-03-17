@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
-import DataFormat from "../DataFormatForGraph";
+import DataFormatForGraph from "../DataFormatForGraph";
 
 const PopulationTransition = (
   checkBoxStatusList: any[],
@@ -50,7 +50,7 @@ const PopulationTransition = (
                 }
               );
             }
-            const newGraphData = DataFormat(
+            const newGraphData = DataFormatForGraph(
               dataList,
               yearData,
               checkedNumberList
