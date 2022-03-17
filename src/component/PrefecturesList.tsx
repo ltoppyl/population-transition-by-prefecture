@@ -7,9 +7,9 @@ type Props = {
   setGraphData: Dispatch<SetStateAction<any[] | undefined>>;
 };
 
-const PrefecturesList = ({ setGraphData }: Props) => {
-  const [prefecturesList, setPrefecturesList] = useState<any[]>();
-  const [checkBoxStatus, setCheckBoxStatus] = useState<boolean[]>([
+const prefecturesNameList = ({ setGraphData }: Props) => {
+  const [prefecturesNameList, setPrefecturesNameList] = useState<any[]>();
+  const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>([
     false,
     false,
     false,
@@ -75,13 +75,13 @@ const PrefecturesList = ({ setGraphData }: Props) => {
           axiosConfig
         )
         .then((response) => {
-          let prefecturesList: any[] = [];
+          let prefecturesNameList: any[] = [];
 
           response.data.result.forEach((data: any) => {
-            prefecturesList.push(data);
+            prefecturesNameList.push(data);
           });
 
-          setPrefecturesList(prefecturesList);
+          setPrefecturesNameList(prefecturesNameList);
         });
     }
   }, []);
@@ -96,22 +96,22 @@ const PrefecturesList = ({ setGraphData }: Props) => {
         },
       };
 
-      let checked_number: any[] = [];
-      checkBoxStatus.forEach((check_status, index) => {
+      let checkedNumberList: any[] = [];
+      checkBoxStatusList.forEach((check_status, index) => {
         if (check_status === true) {
-          checked_number.push(index);
+          checkedNumberList.push(index);
         }
       });
 
       let dataList: any[] = [];
       let yearData: any[] = [];
 
-      if (checked_number.length != 0) {
-        checked_number.forEach((number, index) => {
+      if (checkedNumberList.length != 0) {
+        checkedNumberList.forEach((prefecturesNumber, index) => {
           const res = axios
             .get(
               "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
-                (number + 1) +
+                (prefecturesNumber + 1) +
                 "&cityCode=-",
               axiosConfig
             )
@@ -133,7 +133,7 @@ const PrefecturesList = ({ setGraphData }: Props) => {
               const newGraphData = DataFormat(
                 dataList,
                 yearData,
-                checked_number
+                checkedNumberList
               );
               setGraphData(newGraphData);
             });
@@ -142,23 +142,26 @@ const PrefecturesList = ({ setGraphData }: Props) => {
         setGraphData(undefined);
       }
     }
-  }, [checkBoxStatus]);
+  }, [checkBoxStatusList]);
 
   const handleCheckBox = (data: any) => {
-    setCheckBoxStatus(
-      checkBoxStatus.map((check_statue, index) =>
-        index === data.prefCode - 1 ? !check_statue : check_statue
+    setCheckBoxStatusList(
+      checkBoxStatusList.map((checkStatue, index) =>
+        index === data.prefCode - 1 ? !checkStatue : checkStatue
       )
     );
   };
 
   return (
     <>
-      {prefecturesList && (
+      {prefecturesNameList && (
         <>
-          {prefecturesList.map((prefecturesData) => {
+          {prefecturesNameList.map((prefecturesData) => {
             return (
-              <div className="prefecturesList" key={prefecturesData.prefCode}>
+              <div
+                className="prefecturesNameList"
+                key={prefecturesData.prefCode}
+              >
                 {/* XXX: なぜ label で囲うとチェックボックスが表示されるか不明 */}
                 <label>
                   <input
@@ -179,4 +182,4 @@ const PrefecturesList = ({ setGraphData }: Props) => {
   );
 };
 
-export default PrefecturesList;
+export default prefecturesNameList;
