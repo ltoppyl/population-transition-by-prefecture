@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <>
-      <Title equipment={equipment} />
+      <Title />
       <PrefectureList setGraphData={setGraphData} />
       <Graph equipment={equipment} dataList={graphData} />
     </>
