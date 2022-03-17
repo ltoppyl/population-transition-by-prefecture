@@ -118,15 +118,15 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
             .then((response) => {
               if (index === 0) {
                 response.data.result.data[0].data.forEach(
-                  (eachYearData: { year: any; value: any }) => {
+                  (eachYearData: { year: any; value: any }, _index: number) => {
                     yearData.push(eachYearData.year);
-                    dataList.push(eachYearData.value);
+                    dataList[18 * index + _index] = eachYearData.value;
                   }
                 );
               } else {
-                response.data.result.data[0].data.map(
-                  (eachYearData: { value: any }) => {
-                    dataList.push(eachYearData.value);
+                response.data.result.data[0].data.forEach(
+                  (eachYearData: { year: any; value: any }, _index: number) => {
+                    dataList[18 * index + _index] = eachYearData.value;
                   }
                 );
               }
