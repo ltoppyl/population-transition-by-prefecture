@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import axios from "axios";
 import "../style/style.css";
-import DataFormat from "./DataFormat";
+import DataFormat from "./DataFormatForGraph";
 
 type Props = {
   setGraphData: Dispatch<SetStateAction<any[] | undefined>>;
