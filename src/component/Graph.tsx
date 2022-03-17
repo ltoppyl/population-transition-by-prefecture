@@ -12,48 +12,21 @@ type Props = {
   data: any[] | undefined;
 };
 
-const _data = [
-  {
-    year: 1960,
-    北海道: 50000,
-    青森: 2000,
-    岩手: 3000,
-  },
-  {
-    year: 1965,
-    北海道: 40000,
-    青森: 20000,
-    岩手: 34000,
-  },
-  {
-    year: 1970,
-    北海道: 20000,
-    青森: 33000,
-    岩手: 23000,
-  },
-  {
-    year: 1975,
-    北海道: 520000,
-    青森: 20200,
-    岩手: 3000,
-  },
-];
-
 const Graph = ({ data }: Props) => {
-  const exitPrefectureNameList = [];
-  for (const key in _data[0]) {
-    if (key !== "year") {
-      exitPrefectureNameList.push(key);
-    }
-  }
+  // const exitPrefectureNameList = [];
+  // for (const key in _data[0]) {
+  //   if (key !== "year") {
+  //     exitPrefectureNameList.push(key);
+  //   }
+  // }
 
   return (
     <>
-      {_data ? (
+      {data ? (
         <LineChart
           width={500}
           height={300}
-          data={_data}
+          data={data}
           margin={{
             top: 5,
             right: 30,
@@ -61,7 +34,7 @@ const Graph = ({ data }: Props) => {
             bottom: 5,
           }}
         >
-          {exitPrefectureNameList.map((exitPrefectureName) => {
+          {/* {exitPrefectureNameList.map((exitPrefectureName) => {
             return (
               <Line
                 key={exitPrefectureName}
@@ -70,7 +43,8 @@ const Graph = ({ data }: Props) => {
                 stroke="#8884d8"
               />
             );
-          })}
+          })} */}
+          <Line type="monotone" dataKey="value" stroke="#8884d8" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="year" />
           <YAxis />

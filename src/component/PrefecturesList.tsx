@@ -1,8 +1,6 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import axios from "axios";
 import "../style/style.css";
-import { check } from "prettier";
-import { randomInt } from "crypto";
 
 type Props = {
   setGraphData: Dispatch<SetStateAction<any[] | undefined>>;
@@ -104,24 +102,16 @@ const PrefecturesList = ({ setGraphData }: Props) => {
         }
       });
 
-      const number = checked_number[checked_number.length - 1];
-
-      if (number + 1) {
+      if (checked_number.length != 0) {
         const res = axios
           .get(
             "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
-              (number + 1) +
+              (checked_number[0] + 1) +
               "&cityCode=-",
             axiosConfig
           )
           .then((response) => {
-            let dataList: any[] = [];
-
-            response.data.result.data[0].data.forEach((data: any) => {
-              dataList.push(data);
-            });
-
-            setGraphData(dataList);
+            setGraphData(response.data.result.data[0].data);
           });
       } else {
         setGraphData(undefined);
