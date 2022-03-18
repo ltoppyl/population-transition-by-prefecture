@@ -4,8 +4,9 @@ import axios from "axios";
 import DataFormatForGraph from "../DataFormatForGraph";
 
 const FetchPopulationData = (
-  checkBoxStatusList: any[],
-  setGraphData: Dispatch<SetStateAction<any[] | undefined>>
+  checkBoxStatusList: boolean[],
+  setGraphData: Dispatch<SetStateAction<any[] | undefined>>,
+  prefecturesList: any[] | undefined
 ) => {
   if (!process.env.REACT_APP_API_KEY) {
     console.error("environment variables are not set");
@@ -53,7 +54,8 @@ const FetchPopulationData = (
             const newGraphData = DataFormatForGraph(
               dataList,
               yearData,
-              checkedNumberList
+              checkedNumberList,
+              prefecturesList
             );
             setGraphData(newGraphData);
           });
