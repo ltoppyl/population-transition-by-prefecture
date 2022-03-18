@@ -8,8 +8,8 @@ const SettingUiSize = (equipment: string) => {
       width: 350,
       height: 300,
       marginTop: 50,
-      marginRight: 10,
-      marginLeft: 30,
+      marginRight: 20,
+      marginLeft: 20,
       marginBottom: 0,
     };
   } else {
@@ -17,7 +17,7 @@ const SettingUiSize = (equipment: string) => {
       width: 700,
       height: 350,
       marginTop: 100,
-      marginRight: 30,
+      marginRight: 35,
       marginLeft: 20,
       marginBottom: 0,
     };
