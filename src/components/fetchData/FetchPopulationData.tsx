@@ -6,7 +6,7 @@ import DataFormatForGraph from "../DataFormatForGraph";
 const FetchPopulationData = (
   checkBoxStatusList: boolean[],
   setGraphData: Dispatch<SetStateAction<object[] | undefined>>,
-  prefecturesList: any[] | undefined
+  prefecturesList: object[] | undefined
 ) => {
   if (!process.env.REACT_APP_API_KEY) {
     console.error("environment variables are not set");
