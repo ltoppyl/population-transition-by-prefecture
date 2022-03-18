@@ -6,12 +6,13 @@ const DataFormatForGraph = (
   prefecturesNumberList: number[],
   prefecturesList: any[] | undefined
 ) => {
+  const yearDataAmount = yearData.length;
+
   let prefecturesNameList: any[] = [];
   prefecturesList?.forEach((prefecturesData) => {
     prefecturesNameList.push(prefecturesData.prefName);
   });
 
-  const yearDataAmount = 18;
   let forGraphData: any[] = [];
 
   for (let i = 0; i <= 17; i++) {
