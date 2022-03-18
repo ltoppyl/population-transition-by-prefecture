@@ -2,8 +2,8 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
 import "../styles/style.css";
-import FetchPopulationData from "./fetchData/PopulationTransition";
-import FetchPrefecturesList from "./fetchData/PrefecturesList";
+import FetchPopulationData from "./fetchData/FetchPopulationData";
+import FetchPrefecturesList from "./fetchData/FetchPrefecturesList";
 
 type Props = {
   setGraphData: Dispatch<SetStateAction<any[] | undefined>>;

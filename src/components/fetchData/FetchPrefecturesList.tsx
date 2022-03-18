@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
-const PrefecturesList = (
+const FetchPrefecturesList = (
   setPrefecturesNameList: Dispatch<SetStateAction<any[] | undefined>>
 ) => {
   if (!process.env.REACT_APP_API_KEY) {
@@ -30,4 +30,4 @@ const PrefecturesList = (
   }
 };
 
-export default PrefecturesList;
+export default FetchPrefecturesList;
