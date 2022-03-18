@@ -11,55 +11,12 @@ type Props = {
 
 const prefecturesNameList = ({ setGraphData }: Props) => {
   const [prefecturesNameList, setPrefecturesNameList] = useState<any[]>();
-  const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>(
+    () => {
+      const settingInitialValue = new Array<boolean>(47).fill(false);
+      return settingInitialValue;
+    }
+  );
 
   useEffect(() => {
     FetchPrefecturesList(setPrefecturesNameList);
