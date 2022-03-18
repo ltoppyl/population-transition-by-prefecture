@@ -62,14 +62,11 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
   ]);
 
   useEffect(() => {
-    const fetchPrefecturesList = FetchPrefecturesList(setPrefecturesNameList);
+    FetchPrefecturesList(setPrefecturesNameList);
   }, []);
 
   useEffect(() => {
-    const fetchPopulationData = FetchPopulationData(
-      checkBoxStatusList,
-      setGraphData
-    );
+    FetchPopulationData(checkBoxStatusList, setGraphData);
   }, [checkBoxStatusList]);
 
   const handleCheckBox = (data: any) => {

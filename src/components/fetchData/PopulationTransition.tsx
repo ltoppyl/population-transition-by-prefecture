@@ -62,7 +62,6 @@ const PopulationTransition = (
       setGraphData(undefined);
     }
   }
-  return <p>New File</p>;
 };
 
 export default PopulationTransition;
