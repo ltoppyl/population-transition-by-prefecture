@@ -49,8 +49,6 @@ const SettingUiSize = (equipment: string) => {
       };
       break;
   }
-
-  console.log(uiSize);
   return uiSize;
 };
 
