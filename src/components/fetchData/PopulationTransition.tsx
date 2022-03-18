@@ -40,13 +40,13 @@ const PopulationTransition = (
               response.data.result.data[0].data.forEach(
                 (eachYearData: { year: any; value: any }, _index: number) => {
                   yearData.push(eachYearData.year);
-                  dataList[18 * index + _index] = eachYearData.value;
+                  dataList[18 * index + _index] = eachYearData.value / 10000;
                 }
               );
             } else {
               response.data.result.data[0].data.forEach(
                 (eachYearData: { year: any; value: any }, _index: number) => {
-                  dataList[18 * index + _index] = eachYearData.value;
+                  dataList[18 * index + _index] = eachYearData.value / 10000;
                 }
               );
             }

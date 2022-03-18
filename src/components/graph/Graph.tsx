@@ -54,7 +54,7 @@ const Graph = ({ equipment, dataList }: Props) => {
           />
           <YAxis
             label={{
-              value: "人口数",
+              value: "人口数 (万人)",
               angle: 0,
               offset: -30,
               position: "insideTop",
