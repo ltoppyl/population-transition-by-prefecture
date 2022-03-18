@@ -10,7 +10,7 @@ type Props = {
 };
 
 const prefecturesNameList = ({ setGraphData }: Props) => {
-  const [prefecturesNameList, setPrefecturesNameList] = useState<any[]>();
+  const [prefecturesList, setPrefecturesList] = useState<any[]>();
   const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>(
     () => {
       const settingInitialValue = new Array<boolean>(47).fill(false);
@@ -19,7 +19,7 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
   );
 
   useEffect(() => {
-    FetchPrefecturesList(setPrefecturesNameList);
+    FetchPrefecturesList(setPrefecturesList);
   }, []);
 
   useEffect(() => {
@@ -36,9 +36,9 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
 
   return (
     <>
-      {prefecturesNameList && (
+      {prefecturesList && (
         <div className="prefectures-name-list">
-          {prefecturesNameList.map((prefecturesData) => {
+          {prefecturesList.map((prefecturesData) => {
             return (
               <div key={prefecturesData.prefCode}>
                 {/* XXX: なぜ label で囲うとチェックボックスが表示されるか不明 */}

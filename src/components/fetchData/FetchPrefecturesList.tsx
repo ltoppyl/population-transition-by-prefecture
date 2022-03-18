@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
 const FetchPrefecturesList = (
-  setPrefecturesNameList: Dispatch<SetStateAction<any[] | undefined>>
+  setPrefecturesList: Dispatch<SetStateAction<any[] | undefined>>
 ) => {
   if (!process.env.REACT_APP_API_KEY) {
     console.error("environment variables are not set");
@@ -25,7 +25,7 @@ const FetchPrefecturesList = (
           prefecturesNameList.push(data);
         });
 
-        setPrefecturesNameList(prefecturesNameList);
+        setPrefecturesList(prefecturesNameList);
       });
   }
 };
