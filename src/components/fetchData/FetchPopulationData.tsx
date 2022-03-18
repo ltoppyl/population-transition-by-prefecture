@@ -3,9 +3,10 @@ import axios from "axios";
 
 import DataFormatForGraph from "../DataFormatForGraph";
 
-const PopulationTransition = (
-  checkBoxStatusList: any[],
-  setGraphData: Dispatch<SetStateAction<any[] | undefined>>
+const FetchPopulationData = (
+  checkBoxStatusList: boolean[],
+  setGraphData: Dispatch<SetStateAction<any[] | undefined>>,
+  prefecturesList: any[] | undefined
 ) => {
   if (!process.env.REACT_APP_API_KEY) {
     console.error("environment variables are not set");
@@ -53,7 +54,8 @@ const PopulationTransition = (
             const newGraphData = DataFormatForGraph(
               dataList,
               yearData,
-              checkedNumberList
+              checkedNumberList,
+              prefecturesList
             );
             setGraphData(newGraphData);
           });
@@ -62,7 +64,6 @@ const PopulationTransition = (
       setGraphData(undefined);
     }
   }
-  return <p>New File</p>;
 };
 
-export default PopulationTransition;
+export default FetchPopulationData;

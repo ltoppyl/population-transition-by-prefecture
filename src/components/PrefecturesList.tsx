@@ -2,74 +2,28 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
 import "../styles/style.css";
-import FetchPopulationData from "./fetchData/PopulationTransition";
-import FetchPrefecturesList from "./fetchData/PrefecturesList";
+import FetchPopulationData from "./fetchData/FetchPopulationData";
+import FetchPrefecturesList from "./fetchData/FetchPrefecturesList";
 
 type Props = {
   setGraphData: Dispatch<SetStateAction<any[] | undefined>>;
 };
 
 const prefecturesNameList = ({ setGraphData }: Props) => {
-  const [prefecturesNameList, setPrefecturesNameList] = useState<any[]>();
-  const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const [prefecturesList, setPrefecturesList] = useState<any[]>();
+  const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>(
+    () => {
+      const settingInitialValue = new Array<boolean>(47).fill(false);
+      return settingInitialValue;
+    }
+  );
 
   useEffect(() => {
-    const fetchPrefecturesList = FetchPrefecturesList(setPrefecturesNameList);
+    FetchPrefecturesList(setPrefecturesList);
   }, []);
 
   useEffect(() => {
-    const fetchPopulationData = FetchPopulationData(
-      checkBoxStatusList,
-      setGraphData
-    );
+    FetchPopulationData(checkBoxStatusList, setGraphData, prefecturesList);
   }, [checkBoxStatusList]);
 
   const handleCheckBox = (data: any) => {
@@ -82,9 +36,9 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
 
   return (
     <>
-      {prefecturesNameList && (
+      {prefecturesList && (
         <div className="prefectures-name-list">
-          {prefecturesNameList.map((prefecturesData) => {
+          {prefecturesList.map((prefecturesData) => {
             return (
               <div key={prefecturesData.prefCode}>
                 {/* XXX: なぜ label で囲うとチェックボックスが表示されるか不明 */}
