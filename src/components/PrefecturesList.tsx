@@ -10,7 +10,7 @@ type Props = {
 };
 
 const prefecturesNameList = ({ setGraphData }: Props) => {
-  const [prefecturesList, setPrefecturesList] = useState<any[]>();
+  const [prefecturesList, setPrefecturesList] = useState<any[] | undefined>();
   const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>(
     () => {
       const settingInitialValue = new Array<boolean>(47).fill(false);
