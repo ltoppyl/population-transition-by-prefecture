@@ -13,14 +13,14 @@ import SettingUiSize from "./SettingUiSize";
 
 type Props = {
   equipment: string;
-  dataList: any[] | undefined;
+  dataList: object[] | undefined;
 };
 
 const Graph = ({ equipment, dataList }: Props) => {
   const colorList = ["#00bfff", "#228b22", "#ffd700", "#ff8c00", "#da70d6"];
   const uiSizeForGraph = SettingUiSize(equipment);
 
-  const exitPrefectureNameList = [];
+  const exitPrefectureNameList: string[] = [];
   if (dataList) {
     for (const key in dataList[0]) {
       if (key !== "year") {

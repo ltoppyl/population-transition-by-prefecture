@@ -8,12 +8,12 @@ const DataFormatForGraph = (
 ) => {
   const yearDataAmount = yearData.length;
 
-  let prefecturesNameList: any[] = [];
+  let prefecturesNameList: string[] = [];
   prefecturesList?.forEach((prefecturesData) => {
     prefecturesNameList.push(prefecturesData.prefName);
   });
 
-  let forGraphData: any[] = [];
+  let forGraphData: object[] = [];
 
   for (let i = 0; i <= 17; i++) {
     let _returnData: { [key: string]: number };

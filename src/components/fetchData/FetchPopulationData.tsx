@@ -5,7 +5,7 @@ import DataFormatForGraph from "../DataFormatForGraph";
 
 const FetchPopulationData = (
   checkBoxStatusList: boolean[],
-  setGraphData: Dispatch<SetStateAction<any[] | undefined>>,
+  setGraphData: Dispatch<SetStateAction<object[] | undefined>>,
   prefecturesList: any[] | undefined
 ) => {
   if (!process.env.REACT_APP_API_KEY) {
