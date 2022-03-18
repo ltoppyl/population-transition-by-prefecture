@@ -17,15 +17,15 @@ const FetchPopulationData = (
       },
     };
 
-    let checkedNumberList: any[] = [];
+    let checkedNumberList: number[] = [];
     checkBoxStatusList.forEach((check_status, index) => {
       if (check_status === true) {
         checkedNumberList.push(index);
       }
     });
 
-    let dataList: any[] = [];
-    let yearData: any[] = [];
+    let dataList: number[] = [];
+    let yearData: number[] = [];
 
     if (checkedNumberList.length != 0) {
       checkedNumberList.forEach((prefecturesNumber, index) => {
@@ -39,19 +39,25 @@ const FetchPopulationData = (
           .then((response) => {
             if (index === 0) {
               response.data.result.data[0].data.forEach(
-                (eachYearData: { year: any; value: any }, _index: number) => {
+                (
+                  eachYearData: { year: number; value: number },
+                  _index: number
+                ) => {
                   yearData.push(eachYearData.year);
                   dataList[18 * index + _index] = eachYearData.value / 10000;
                 }
               );
             } else {
               response.data.result.data[0].data.forEach(
-                (eachYearData: { year: any; value: any }, _index: number) => {
+                (
+                  eachYearData: { year: number; value: number },
+                  _index: number
+                ) => {
                   dataList[18 * index + _index] = eachYearData.value / 10000;
                 }
               );
             }
-            const newGraphData = DataFormatForGraph(
+            const newGraphData: object[] = DataFormatForGraph(
               dataList,
               yearData,
               checkedNumberList,

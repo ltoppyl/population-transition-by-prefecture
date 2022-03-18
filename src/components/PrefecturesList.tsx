@@ -6,7 +6,7 @@ import FetchPopulationData from "./fetchData/FetchPopulationData";
 import FetchPrefecturesList from "./fetchData/FetchPrefecturesList";
 
 type Props = {
-  setGraphData: Dispatch<SetStateAction<any[] | undefined>>;
+  setGraphData: Dispatch<SetStateAction<object[] | undefined>>;
 };
 
 const prefecturesNameList = ({ setGraphData }: Props) => {

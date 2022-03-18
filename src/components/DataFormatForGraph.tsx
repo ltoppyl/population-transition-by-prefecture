@@ -1,8 +1,8 @@
 import React from "react";
 
 const DataFormatForGraph = (
-  dataList: any[],
-  yearData: any[],
+  dataList: number[],
+  yearData: number[],
   prefecturesNumberList: number[],
   prefecturesList: any[] | undefined
 ) => {

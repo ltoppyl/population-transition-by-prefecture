@@ -6,7 +6,7 @@ import Title from "./components/Title";
 import { useMediaQueryContext } from "./components/responsive/MediaQueryProvider";
 
 const App = () => {
-  const [graphData, setGraphData] = useState<any[]>();
+  const [graphData, setGraphData] = useState<object[]>();
   const { isMobileSite, isTabletSite, isPcSite } = useMediaQueryContext();
   const [equipment, setEquipment] = useState<string>("pc");
 
