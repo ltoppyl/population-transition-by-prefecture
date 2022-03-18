@@ -54,14 +54,14 @@ const Graph = ({ equipment, dataList }: Props) => {
           />
           <YAxis
             label={{
-              value: "人口数",
+              value: "人口数 (万人)",
               angle: 0,
               offset: -30,
               position: "insideTop",
             }}
           />
           <Tooltip />
-          <Legend />
+          <Legend width={uiSizeForGraph.xAxisLabelWidth} />
           {exitPrefectureNameList.map((exitPrefectureName, index) => {
             return (
               <Line
