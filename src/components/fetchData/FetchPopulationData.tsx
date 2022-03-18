@@ -2,11 +2,12 @@ import React, { Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
 import DataFormatForGraph from "../DataFormatForGraph";
+import { prefecturesListType } from "../../type/type";
 
 const FetchPopulationData = (
   checkBoxStatusList: boolean[],
   setGraphData: Dispatch<SetStateAction<object[] | undefined>>,
-  prefecturesList: object[] | undefined
+  prefecturesList: prefecturesListType[] | undefined
 ) => {
   if (!process.env.REACT_APP_API_KEY) {
     console.error("environment variables are not set");

@@ -2,6 +2,7 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
 import "../styles/style.css";
+import { prefecturesListType } from "../type/type";
 import FetchPopulationData from "./fetchData/FetchPopulationData";
 import FetchPrefecturesList from "./fetchData/FetchPrefecturesList";
 
@@ -10,7 +11,9 @@ type Props = {
 };
 
 const prefecturesNameList = ({ setGraphData }: Props) => {
-  const [prefecturesList, setPrefecturesList] = useState<any[] | undefined>();
+  const [prefecturesList, setPrefecturesList] = useState<
+    prefecturesListType[] | undefined
+  >();
   const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>(
     () => {
       const settingInitialValue = new Array<boolean>(47).fill(false);
@@ -26,7 +29,7 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
     FetchPopulationData(checkBoxStatusList, setGraphData, prefecturesList);
   }, [checkBoxStatusList]);
 
-  const handleCheckBox = (data: any) => {
+  const handleCheckBox = (data: prefecturesListType) => {
     setCheckBoxStatusList(
       checkBoxStatusList.map((checkStatue, index) =>
         index === data.prefCode - 1 ? !checkStatue : checkStatue
