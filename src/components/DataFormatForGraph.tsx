@@ -1,6 +1,6 @@
 import React from "react";
 
-const DataFormat = (
+const DataFormatForGraph = (
   dataList: any[],
   yearData: any[],
   prefecturesNumberList: number[]
@@ -58,78 +58,19 @@ const DataFormat = (
   const yearDataAmount = 18;
   let forGraphData: any[] = [];
 
-  switch (prefecturesNumberList.length) {
-    case 1:
-      for (let i = 0; i <= 17; i++) {
-        const _returnData = {
-          year: yearData[i],
-          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
-        };
-        forGraphData.push(_returnData);
-      }
-      break;
-    case 2:
-      for (let i = 0; i <= 17; i++) {
-        const _returnData = {
-          year: yearData[i],
-          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
-          [prefecturesNameList[prefecturesNumberList[1]]]:
-            dataList[i + yearDataAmount],
-        };
-        forGraphData.push(_returnData);
-      }
-      break;
-    case 3:
-      for (let i = 0; i <= 17; i++) {
-        const _returnData = {
-          year: yearData[i],
-          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
-          [prefecturesNameList[prefecturesNumberList[1]]]:
-            dataList[i + yearDataAmount],
-          [prefecturesNameList[prefecturesNumberList[2]]]:
-            dataList[i + yearDataAmount * 2],
-        };
-        forGraphData.push(_returnData);
-      }
-      break;
-    case 4:
-      for (let i = 0; i <= 17; i++) {
-        const _returnData = {
-          year: yearData[i],
-          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
-          [prefecturesNameList[prefecturesNumberList[1]]]:
-            dataList[i + yearDataAmount],
-          [prefecturesNameList[prefecturesNumberList[2]]]:
-            dataList[i + yearDataAmount * 2],
-          [prefecturesNameList[prefecturesNumberList[3]]]:
-            dataList[i + yearDataAmount * 3],
-        };
-        forGraphData.push(_returnData);
-      }
-      break;
-    case 5:
-      for (let i = 0; i <= 17; i++) {
-        const _returnData = {
-          year: yearData[i],
-          [prefecturesNameList[prefecturesNumberList[0]]]: dataList[i],
-          [prefecturesNameList[prefecturesNumberList[1]]]:
-            dataList[i + yearDataAmount],
-          [prefecturesNameList[prefecturesNumberList[2]]]:
-            dataList[i + yearDataAmount * 2],
-          [prefecturesNameList[prefecturesNumberList[3]]]:
-            dataList[i + yearDataAmount * 3],
-          [prefecturesNameList[prefecturesNumberList[4]]]:
-            dataList[i + yearDataAmount * 4],
-        };
-        forGraphData.push(_returnData);
-      }
-      break;
-    default:
-      console.error("exceeding the amount of data ");
-      break;
+  for (let i = 0; i <= 17; i++) {
+    let _returnData: { [key: string]: number };
+    _returnData = {
+      year: yearData[i],
+    };
+    for (let j = 0; j < prefecturesNumberList.length; j++) {
+      _returnData[prefecturesNameList[prefecturesNumberList[j]]] =
+        dataList[yearDataAmount * j + i];
+    }
+    forGraphData.push(_returnData);
   }
 
   return forGraphData;
 };
 
-export default DataFormat;
+export default DataFormatForGraph;
