@@ -61,7 +61,7 @@ const Graph = ({ equipment, dataList }: Props) => {
             }}
           />
           <Tooltip />
-          <Legend />
+          <Legend width={uiSizeForGraph.xAxisLabelWidth} />
           {exitPrefectureNameList.map((exitPrefectureName, index) => {
             return (
               <Line
