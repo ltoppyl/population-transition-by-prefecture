@@ -1,8 +1,12 @@
 import React, { Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
+import { prefecturesListType } from "../../type/type";
+
 const FetchPrefecturesList = (
-  setPrefecturesList: Dispatch<SetStateAction<object[] | undefined>>
+  setPrefecturesList: Dispatch<
+    SetStateAction<prefecturesListType[] | undefined>
+  >
 ) => {
   if (!process.env.REACT_APP_API_KEY) {
     console.error("environment variables are not set");
@@ -19,9 +23,9 @@ const FetchPrefecturesList = (
         axiosConfig
       )
       .then((response) => {
-        let prefecturesNameList: object[] = [];
+        let prefecturesNameList: prefecturesListType[] = [];
 
-        response.data.result.forEach((data: object) => {
+        response.data.result.forEach((data: prefecturesListType) => {
           prefecturesNameList.push(data);
         });
 

@@ -1,10 +1,12 @@
 import React from "react";
 
+import { prefecturesListType } from "../type/type";
+
 const DataFormatForGraph = (
   dataList: number[],
   yearData: number[],
   prefecturesNumberList: number[],
-  prefecturesList: any[] | undefined
+  prefecturesList: prefecturesListType[] | undefined
 ) => {
   const yearDataAmount = yearData.length;
 
