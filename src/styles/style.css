@@ -8,6 +8,10 @@
   flex-wrap: wrap;
 }
 
+.prefectures-name-list :hover {
+  cursor: pointer;
+}
+
 .recharts-wrapper {
   margin: auto;
 }
