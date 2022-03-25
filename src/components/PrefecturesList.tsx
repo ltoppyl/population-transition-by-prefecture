@@ -28,7 +28,6 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
 
   const handleCheckBox = (data: prefecturesListType) => {
     const newCheckBoxStatusTrueList = checkBoxStatusTrueList.concat();
-    console.log(newCheckBoxStatusTrueList);
     if (checkBoxStatusTrueList.includes(data.prefCode) == true) {
       const deletePredCode = newCheckBoxStatusTrueList.splice(
         newCheckBoxStatusTrueList.indexOf(data.prefCode),
@@ -37,7 +36,6 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
     } else {
       const addPredCode = newCheckBoxStatusTrueList.push(data.prefCode);
     }
-    console.log(newCheckBoxStatusTrueList);
     setCheckBoxStatusTrueList(newCheckBoxStatusTrueList);
   };
 
