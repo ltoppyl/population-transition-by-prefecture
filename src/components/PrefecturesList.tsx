@@ -14,27 +14,31 @@ const prefecturesNameList = ({ setGraphData }: Props) => {
   const [prefecturesList, setPrefecturesList] = useState<
     prefecturesListType[] | undefined
   >();
-  const [checkBoxStatusList, setCheckBoxStatusList] = useState<boolean[]>(
-    () => {
-      const settingInitialValue = new Array<boolean>(47).fill(false);
-      return settingInitialValue;
-    }
-  );
+  const [checkBoxStatusTrueList, setCheckBoxStatusTrueList] = useState<
+    number[]
+  >([]);
 
   useEffect(() => {
     FetchPrefecturesList(setPrefecturesList);
   }, []);
 
   useEffect(() => {
-    FetchPopulationData(checkBoxStatusList, setGraphData, prefecturesList);
-  }, [checkBoxStatusList]);
+    FetchPopulationData(checkBoxStatusTrueList, setGraphData, prefecturesList);
+  }, [checkBoxStatusTrueList]);
 
   const handleCheckBox = (data: prefecturesListType) => {
-    setCheckBoxStatusList(
-      checkBoxStatusList.map((checkStatue, index) =>
-        index === data.prefCode - 1 ? !checkStatue : checkStatue
-      )
-    );
+    const newCheckBoxStatusTrueList = checkBoxStatusTrueList.concat();
+    console.log(newCheckBoxStatusTrueList);
+    if (checkBoxStatusTrueList.includes(data.prefCode) == true) {
+      const deletePredCode = newCheckBoxStatusTrueList.splice(
+        newCheckBoxStatusTrueList.indexOf(data.prefCode),
+        1
+      );
+    } else {
+      const addPredCode = newCheckBoxStatusTrueList.push(data.prefCode);
+    }
+    console.log(newCheckBoxStatusTrueList);
+    setCheckBoxStatusTrueList(newCheckBoxStatusTrueList);
   };
 
   return (

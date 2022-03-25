@@ -23,7 +23,7 @@ const DataFormatForGraph = (
       year: yearData[i],
     };
     for (let j = 0; j < prefecturesNumberList.length; j++) {
-      _returnData[prefecturesNameList[prefecturesNumberList[j]]] =
+      _returnData[prefecturesNameList[prefecturesNumberList[j] - 1]] =
         dataList[yearDataAmount * j + i];
     }
     forGraphData.push(_returnData);

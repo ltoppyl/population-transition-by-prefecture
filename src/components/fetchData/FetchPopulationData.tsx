@@ -5,7 +5,7 @@ import DataFormatForGraph from "../DataFormatForGraph";
 import { prefecturesListType } from "../../type/type";
 
 const FetchPopulationData = (
-  checkBoxStatusList: boolean[],
+  checkBoxStatusList: number[],
   setGraphData: Dispatch<SetStateAction<object[] | undefined>>,
   prefecturesList: prefecturesListType[] | undefined
 ) => {
@@ -18,22 +18,14 @@ const FetchPopulationData = (
       },
     };
 
-    let checkedNumberList: number[] = [];
-    checkBoxStatusList.forEach((check_status, index) => {
-      if (check_status === true) {
-        checkedNumberList.push(index);
-      }
-    });
-
     let dataList: number[] = [];
     let yearData: number[] = [];
-
-    if (checkedNumberList.length != 0) {
-      checkedNumberList.forEach((prefecturesNumber, index) => {
+    if (checkBoxStatusList.length != 0) {
+      checkBoxStatusList.forEach((prefecturesNumber, index) => {
         const res = axios
           .get(
             "https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?prefCode=" +
-              (prefecturesNumber + 1) +
+              prefecturesNumber +
               "&cityCode=-",
             axiosConfig
           )
@@ -61,7 +53,7 @@ const FetchPopulationData = (
             const newGraphData: object[] = DataFormatForGraph(
               dataList,
               yearData,
-              checkedNumberList,
+              checkBoxStatusList,
               prefecturesList
             );
             setGraphData(newGraphData);
