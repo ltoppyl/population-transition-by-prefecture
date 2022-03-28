@@ -23,13 +23,19 @@ const FetchPrefecturesList = (
         axiosConfig
       )
       .then((response) => {
-        let prefecturesNameList: prefecturesListType[] = [];
+        if (response.status == 200) {
+          console.log(response);
+          let prefecturesNameList: prefecturesListType[] = [];
 
-        response.data.result.forEach((data: prefecturesListType) => {
-          prefecturesNameList.push(data);
-        });
+          response.data.result.forEach((data: prefecturesListType) => {
+            prefecturesNameList.push(data);
+          });
 
-        setPrefecturesList(prefecturesNameList);
+          setPrefecturesList(prefecturesNameList);
+        } else {
+          console.error("http request error");
+          console.error("response status:", response.status);
+        }
       });
   }
 };
