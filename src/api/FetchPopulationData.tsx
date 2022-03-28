@@ -30,33 +30,38 @@ const FetchPopulationData = (
             axiosConfig
           )
           .then((response) => {
-            if (index === 0) {
-              response.data.result.data[0].data.forEach(
-                (
-                  eachYearData: { year: number; value: number },
-                  _index: number
-                ) => {
-                  yearData.push(eachYearData.year);
-                  dataList[18 * index + _index] = eachYearData.value / 10000;
-                }
+            if (response.status == 200) {
+              if (index === 0) {
+                response.data.result.data[0].data.forEach(
+                  (
+                    eachYearData: { year: number; value: number },
+                    _index: number
+                  ) => {
+                    yearData.push(eachYearData.year);
+                    dataList[18 * index + _index] = eachYearData.value / 10000;
+                  }
+                );
+              } else {
+                response.data.result.data[0].data.forEach(
+                  (
+                    eachYearData: { year: number; value: number },
+                    _index: number
+                  ) => {
+                    dataList[18 * index + _index] = eachYearData.value / 10000;
+                  }
+                );
+              }
+              const newGraphData: object[] = DataFormatForGraph(
+                dataList,
+                yearData,
+                checkBoxStatusList,
+                prefecturesList
               );
+              setGraphData(newGraphData);
             } else {
-              response.data.result.data[0].data.forEach(
-                (
-                  eachYearData: { year: number; value: number },
-                  _index: number
-                ) => {
-                  dataList[18 * index + _index] = eachYearData.value / 10000;
-                }
-              );
+              console.error("http request error");
+              console.error("response status:", response.status);
             }
-            const newGraphData: object[] = DataFormatForGraph(
-              dataList,
-              yearData,
-              checkBoxStatusList,
-              prefecturesList
-            );
-            setGraphData(newGraphData);
           });
       });
     } else {
