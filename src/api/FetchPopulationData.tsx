@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
-import DataFormatForGraph from "../DataFormatForGraph";
-import { prefecturesListType } from "../../type/type";
+import DataFormatForGraph from "../components/DataFormatForGraph";
+import { prefecturesListType } from "../type/type";
 
 const FetchPopulationData = (
   checkBoxStatusList: number[],
