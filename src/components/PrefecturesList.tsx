@@ -3,8 +3,8 @@ import axios from "axios";
 
 import "../styles/style.css";
 import { prefecturesListType } from "../type/type";
-import FetchPopulationData from "./fetchData/FetchPopulationData";
-import FetchPrefecturesList from "./fetchData/FetchPrefecturesList";
+import FetchPopulationData from "../api/FetchPopulationData";
+import FetchPrefecturesList from "../api/FetchPrefecturesList";
 
 type Props = {
   setGraphData: Dispatch<SetStateAction<object[] | undefined>>;

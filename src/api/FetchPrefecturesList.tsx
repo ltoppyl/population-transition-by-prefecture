@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import axios from "axios";
 
-import { prefecturesListType } from "../../type/type";
+import { prefecturesListType } from "../type/type";
 
 const FetchPrefecturesList = (
   setPrefecturesList: Dispatch<
