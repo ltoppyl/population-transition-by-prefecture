@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-import { MediaQueryProvider } from "./components/responsive/MediaQueryProvider";
+import { MediaQueryProvider } from "./responsive/MediaQueryProvider";
 
 ReactDOM.render(
   <React.StrictMode>
