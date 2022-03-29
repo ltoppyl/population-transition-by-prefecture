@@ -20,6 +20,7 @@ const FetchPopulationData = (
 
     let dataList: number[] = [];
     let yearData: number[] = [];
+    let dataLength: number = 0;
     if (checkBoxStatusList.length != 0) {
       checkBoxStatusList.forEach((prefecturesNumber, index) => {
         const res = axios
@@ -31,6 +32,8 @@ const FetchPopulationData = (
           )
           .then((response) => {
             if (response.status == 200) {
+              console.log(response.data.result.data[0].data.length);
+              dataLength = response.data.result.data[0].data.length;
               if (index === 0) {
                 response.data.result.data[0].data.forEach(
                   (
@@ -38,7 +41,8 @@ const FetchPopulationData = (
                     _index: number
                   ) => {
                     yearData.push(eachYearData.year);
-                    dataList[18 * index + _index] = eachYearData.value / 10000;
+                    dataList[dataLength * index + _index] =
+                      eachYearData.value / 10000;
                   }
                 );
               } else {
@@ -47,7 +51,8 @@ const FetchPopulationData = (
                     eachYearData: { year: number; value: number },
                     _index: number
                   ) => {
-                    dataList[18 * index + _index] = eachYearData.value / 10000;
+                    dataList[dataLength * index + _index] =
+                      eachYearData.value / 10000;
                   }
                 );
               }
@@ -55,7 +60,8 @@ const FetchPopulationData = (
                 dataList,
                 yearData,
                 checkBoxStatusList,
-                prefecturesList
+                prefecturesList,
+                dataLength
               );
               setGraphData(newGraphData);
             } else {

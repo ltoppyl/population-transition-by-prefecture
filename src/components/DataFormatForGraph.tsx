@@ -6,7 +6,8 @@ const DataFormatForGraph = (
   dataList: number[],
   yearData: number[],
   prefecturesNumberList: number[],
-  prefecturesList: prefecturesListType[] | undefined
+  prefecturesList: prefecturesListType[] | undefined,
+  dataLength: number
 ) => {
   const yearDataAmount = yearData.length;
 
@@ -17,7 +18,7 @@ const DataFormatForGraph = (
 
   let forGraphData: object[] = [];
 
-  for (let i = 0; i <= 17; i++) {
+  for (let i = 0; i < dataLength; i++) {
     let _returnData: { [key: string]: number };
     _returnData = {
       year: yearData[i],
