@@ -24,7 +24,6 @@ const FetchPrefecturesList = (
       )
       .then((response) => {
         if (response.status == 200) {
-          console.log(response);
           let prefecturesNameList: prefecturesListType[] = [];
 
           response.data.result.forEach((data: prefecturesListType) => {
