@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import PrefectureList from "./components/PrefecturesList";
 import Graph from "./components/graph/Graph";
-import Title from "./components/Title";
-import { useMediaQueryContext } from "./components/responsive/MediaQueryProvider";
+import { useMediaQueryContext } from "./responsive/MediaQueryProvider";
 
 const App = () => {
   const [graphData, setGraphData] = useState<object[]>();
@@ -22,9 +21,17 @@ const App = () => {
 
   return (
     <>
-      <Title />
-      <PrefectureList setGraphData={setGraphData} />
-      <Graph equipment={equipment} dataList={graphData} />
+      {equipment === "mobile" ? (
+        <>
+          <PrefectureList setGraphData={setGraphData} />
+          <Graph equipment={equipment} dataList={graphData} />
+        </>
+      ) : (
+        <div className="components-pc-and-tablet">
+          <PrefectureList setGraphData={setGraphData} />
+          <Graph equipment={equipment} dataList={graphData} />
+        </div>
+      )}
     </>
   );
 };

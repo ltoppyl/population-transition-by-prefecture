@@ -1,9 +1,8 @@
 import React from "react";
+import "./styles/style.css";
 
-import "../styles/style.css";
-
-const Title = () => {
+const Header = () => {
   return <h1 className="title">都道府県別人口推移</h1>;
 };
 
-export default Title;
+export default Header;

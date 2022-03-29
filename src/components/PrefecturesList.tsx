@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
-import axios from "axios";
 
 import "../styles/style.css";
 import { prefecturesListType } from "../type/type";
