@@ -8,6 +8,10 @@
   flex-wrap: wrap;
 }
 
+.prefectures-name-list div {
+  width: 25%;
+}
+
 .prefectures-name-list :hover {
   cursor: pointer;
 }
