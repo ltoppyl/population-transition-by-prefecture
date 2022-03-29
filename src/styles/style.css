@@ -3,6 +3,11 @@
   background-color: silver;
 }
 
+.components-pc-and-tablet {
+  max-width: 60%;
+  margin: auto;
+}
+
 .prefectures-name-list {
   display: flex;
   flex-wrap: wrap;

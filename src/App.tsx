@@ -21,8 +21,17 @@ const App = () => {
 
   return (
     <>
-      <PrefectureList setGraphData={setGraphData} />
-      <Graph equipment={equipment} dataList={graphData} />
+      {equipment === "mobile" ? (
+        <>
+          <PrefectureList setGraphData={setGraphData} />
+          <Graph equipment={equipment} dataList={graphData} />
+        </>
+      ) : (
+        <div className="components-pc-and-tablet">
+          <PrefectureList setGraphData={setGraphData} />
+          <Graph equipment={equipment} dataList={graphData} />
+        </div>
+      )}
     </>
   );
 };
